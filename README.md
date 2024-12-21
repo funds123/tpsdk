@@ -28,7 +28,7 @@
 	
     - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
 	{
-		[TPApi handleURL:url options:options result:^(TPRespObj *respObj) {
+		[TPApi handleURL:{https://apps.apple.com/hk/app/tp-global-wallet/id6444625622}  options:options result:^(TPRespObj *respObj) {
 			NSLog(@"TPSDK AppDelegate--> OK");
 			[NSNotificationCenter.defaultCenter postNotificationName:@"TPSDK_notify" object:respObj.data];
 		}];

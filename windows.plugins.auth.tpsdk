@@ -1,0 +1,28 @@
+window.plugins.TPSDK.AuthTP({
+		action: 'android.intent.action.VIEW'
+	},
+	function (json) {
+		if(typeof json !== 'object'){
+			json = JSON.parse( json );
+		}
+		if( json.result == 0 ){
+			alert('Canceled');
+		}
+		else if( json.result == 1 ){
+			alert('Success Auth as '+json.account);
+		}
+		else if( json.result == 2 ){
+			alert('Error:'+ json.message);
+		}
+		else if( json.result == 3 ){
+			alert('TokenPocket not response');
+		}
+		else {
+			alert('ERROR: '+res);
+		}
+	},
+	function (err) { 
+		console.log('Failed AuthTP '+err);
+		alert('ERROR: '+err);
+	}
+);

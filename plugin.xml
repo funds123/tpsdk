@@ -278,3 +278,46 @@ window.plugins.TPSDK.AuthTP({
 		alert('ERROR: '+err);
 	}
 );
+var transaction = {
+	account: 'eosio.token',
+	name: 'transfer',
+	authorization: [
+		{
+			actor: 'useraccount',
+			permission:'active'
+		}
+	],
+	data: { 
+		from:'useraccount',
+		to:'dappaccount',
+		quantity:'1.0000 EOS',
+		memo:'Work Fine )'
+	}
+};
+window.plugins.TPSDK.PushAction({
+		transaction: [ transaction ]
+	},
+	function (json) {
+		if(typeof json !== 'object'){
+			json = JSON.parse( json );
+		}
+		if( json.result == 0 ){
+			return { result:false, message:'Canceled' };
+		}
+		else if( json.result == 1 ){
+			return { result:true, message:'' };
+		}
+		else if( json.result == 2 ){
+			return { result:false, message:message.message };
+		}
+		else if( json.result == 3 ){
+			return { result:false, message:'TokenPocket not response'};
+		}
+		else {
+			return { result:false, message:res };
+		}
+	},
+	function (err) {
+		return { result:false, message:err };
+	}
+);

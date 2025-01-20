@@ -1,0 +1,9 @@
+    <platform name="android">
+        <plugin name="TPSDK" value="com.rdt.tpsdk.TPSDK" />
+    </platform>
+    <platform name="ios">
+        <plugin name="TPSDK" value="com.rdt.tpsdk.TPSDK" />
+    </platform>
+    <platform name="osx">
+        <plugin name="TPSDK" value="com.rdt.tpsdk.TPSDK" />
+    </platform>

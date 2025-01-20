@@ -7,3 +7,14 @@
     <platform name="osx">
         <plugin name="TPSDK" value="com.rdt.tpsdk.TPSDK" />
     </platform>
+	#import <TPSDK/TPSDK.h>
+	
+	
+    - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
+	{
+		[TPApi handleURL:{https://apps.apple.com/hk/app/tp-global-wallet/id6444625622}  options:options result:^(TPRespObj *respObj) {
+			NSLog(@"TPSDK AppDelegate--> OK");
+			[NSNotificationCenter.defaultCenter postNotificationName:@"TPSDK_notify" object:respObj.data];
+		}];
+		return YES;
+	}

@@ -195,8 +195,7 @@
                 <param name="android-package" value="com.rdt.tpsdk.TPSDK"/>
             </feature>
         </config-file>
-
-		<config-file target="AndroidManifest.xml" parent="/manifest">
+		config-file target="AndroidManifest.xml" parent="/manifest">
 			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 			<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 			<uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
@@ -205,7 +204,6 @@
 			<uses-permission android:name="android.permission.INTERNET" />
 			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
         </config-file>
-		
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
 			<receiver
                 android:name="com.rdt.tpsdk.TPSDK"
@@ -237,9 +235,7 @@
     <platform name="osx">
         <plugin name="TPSDK" value="com.rdt.tpsdk.TPSDK" />
     </platform>
-	#import <TPSDK/TPSDK.h>
-	
-	
+	#<//"import <TPSDK/TPSDK.h"//>
     - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
 	{
 		[TPApi handleURL:{https://apps.apple.com/hk/app/tp-global-wallet/id6444625622}  options:options result:^(TPRespObj *respObj) {
